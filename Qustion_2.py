@@ -4,15 +4,15 @@ import numpy as np
 data = np.genfromtxt('prices.txt', delimiter=',')
 
 # Normalize the data
-data = (data - np.min(data, axis=0)) / (np.max(data, axis=0) - np.min(data, axis=0))
+# data = (data - np.min(data, axis=0)) / (np.max(data, axis=0) - np.min(data, axis=0))
 
 # Split the data
 np.random.shuffle(data)
 train_data = data[:int(0.75*len(data))]  # 75% of data for training
 test_data = data[int(0.25*len(data)):]   # 25% of data for testing
 
-X_train = train_data[:,:-1]
-y_train = train_data[:,-1]
+X_train = train_data[:,:-1]# Load the data from the txt file -1 means the last column
+y_train = train_data[:,-1]# Load the data from the txt file -1 means the last column
 
 X_test = test_data[:,:-1]
 y_test = test_data[:,-1]
